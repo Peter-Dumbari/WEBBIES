@@ -1,0 +1,67 @@
+{% extends 'news/base.html' %}
+{% block content %}
+
+<style>
+    li {
+        background-color: rgb(51, 48, 48);
+        color: red;
+    }
+
+    h1 {
+        color: green;
+    }
+
+    .col-lg-5 {
+        background-color: blanchedalmond;
+        border: 5px solid;
+        border-color: white;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-6">
+            <br><br>
+            <center>
+                <h1 style="text-decoration: underline;">You have successfully logged out</h1>
+            </center>
+            <br>
+            <center>
+                <i class="glyphicon glyphicon-hand-right"></i> <a class="btn btn-default" href="/login">Re-Login
+                    Account</a>
+            </center>
+        </div>
+    </div>
+</div>
+<br><br>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                {% for item in update %}
+                <div class="jumbotron">
+                    <h2>{{item.topic}}</h2>
+                    <article>
+                        {{item.article}}
+                    </article><br>
+                    <a href="" class="btn btn-link">{{item.pk}}.</a><br>
+                    <a class="btn btn-success" href="{% url 'delete' pk=item.pk %}">delete</a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'news/navbar.html' %}
+
+{% block content %}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+    $(document).ready(function () {
+        $("#headar").click(function () {
+            $("#bodi").slideDown("slow");
+        });
+    });
+</script>
+<style>
+    #headar,
+    #bodi {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #bodi {
+        padding: 50px;
+        display: none;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-6">
+            <h3 id="headar">ADD NEWS</h3>
+            <form action="" method="post" id="bodi">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <center> <input type="submit" value="Add News" class="btn btn-success"></center>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+<center>
+    <h3><b>Note:</b> Click on that box to add your News</h3>
+</center>
+{% endblock %}

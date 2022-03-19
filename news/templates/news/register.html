@@ -1,0 +1,73 @@
+{% extends 'news/base.html' %}
+
+{% block title %}SWAGISSUES.COM{% endblock %}
+
+
+{% block content %}
+
+
+<style>
+    body {
+        background-image: url("https://res.cloudinary.com/tamstech-computer-repair-center/image/upload/v1646303394/cld-sample.jpg");
+    }
+
+
+    ul {
+        background-color: dimgrey;
+        color: red;
+    }
+
+    .errorlist {
+        background-color: transparent;
+    }
+
+    label {
+        color: white
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+    }
+
+    .jombotron {
+        box-shadow: 4px 4px 4px 4px rgb(233, 198, 151);
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-5">
+
+                <br>
+                <h1>CREAT ACCOUNT</h1>
+                <br>
+                <div class="jombotron">
+                    <form action="" method="POST" class="form-group">
+                        {{form.as_p}}
+                        {% csrf_token %}
+                        <br>
+                        <center> <input type="submit" value="Create Account" class="btn btn-success"></center>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+
+    </div>
+    <br><br><br>
+    <center style="background-color: wheat;">
+        <h3 style="color: rgb(248, 6, 6);">NOTE: Check your Datas carefully before submiting,</h3>
+    </center>
+    <br><br>
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'news/base.html'%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% block content %}
+
+<style>
+    .container {
+        text-align: center;
+        padding-bottom: 50px;
+        width: 100%;
+        background-image: url("https://res.cloudinary.com/tamstech-computer-repair-center/image/upload/v1646312651/istockphoto-1144287280-612x612_k8usic.jpg");
+        background-position: 40px;
+        height: 250px;
+        padding-top: 50px;
+        border: 3px solid;
+    }
+
+    input[type=text] {
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid rgb(22, 22, 22);
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: transparent;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 50%;
+    }
+
+    .jumbotron {
+        background-color: rgb(226, 223, 223);
+        box-shadow: 3px 3px 3px 3px #e0e0e0;
+        padding-top: 5px;
+        enable-background: accumulate;
+    }
+
+    .col-lg {
+        font-display: behind;
+        background: transparent;
+    }
+
+    h3 {
+        text-decoration: underline;
+        color: chocolate;
+    }
+
+    article {
+        text-align: justify;
+    }
+</style>
+
+
+<body>
+    <section class="container">
+        <form action="" method="GET"></form>
+        <h1 style="color: azure;">Important Materials for your Research </h1>
+        <input type="text" placeholder="                Search...." name="search">
+        <button type=""><span class="glyphicon glyphicon-search"></span> </button>
+        </form>
+
+    </section>
+
+    <br>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% for item in blogs %}
+                    <div class="jumbotron">
+                        <h2>{{item.topic}}</h2>
+                        <p style="font-size:13px;">Posted: {{item.datecreated}}</p>
+                        <article>
+                            {{item.article}}
+                        </article><br>
+                        <a href="" class="btn btn-link">Read more....</a>
+                        <a class="btn btn-success" href="#">Download</a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div class="col-lg-4">
+
+                    <h3 style="text-align: center;">TOP STORIES</h3>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="jumbotron">
+                        <h4>RUSSIA VS UKRAIN WAR</h4>
+                        Date: 2nd March, 2022.
+                        <article>
+                            Russia inveded Ukrain, killing and destroying properties. We are actually praying for God
+                            intervention there in Ukrain. The Russian is not ever ready for peace, God wil touch him. <a
+                                href="https://www.washingtonpost.com/?utm_source=google&utm_medium=acq-intl&utm_campaign=eng-evg&utm_content=INTL_Engagement_Global&utm_keyword=russia%20ukraine&gclid=CjwKCAiAyPyQBhB6EiwAFUuakoBNWRY4_tb8lWD-lMjdvF2Li85dr95Q0Ie6wi59azaPARxX13OVaRoCr2cQAvD_BwE">Read...</a>
+                        </article><br>
+                        <a style="color: red;" href="https://www.youtube.com/watch?v=iHR_FBPNfTY">WATCH THE VIDEO</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="jumbotron">
+                        <h4>GOVERNOR WIKE FLAG-OFF ANOTHER FLYOVER</h4>
+                        Date: .......
+                        <article>
+                            The Rivers state Governor, His Excellency Governor Nyesom Wike, has flag-off another flyover
+                            bridge in Rivers state <a
+                                href="https://pmnewsnigeria.com/2022/02/11/real-reason-we-are-building-flyovers-in-rivers-wike/">...</a>
+                        </article><br>
+                        <a style="color: red;" href="https://www.youtube.com/watch?v=O3G1X5kKPb4">WATCH THE VIDEO</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock %}

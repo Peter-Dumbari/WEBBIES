@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<title>SwaggIssues.com</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                background-color: #333;
+                border: 2px solid;
+                right: 0;
+                width: 100%;
+                overflow: hidden;
+
+            }
+
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: rgb(148, 137, 137);
+                color: rgb(5, 8, 8);
+            }
+
+            .active {
+                background-color: #04AA6D;
+            }
+
+            b {
+                font-size: x-large;
+                background-color: white;
+                color: black;
+                padding-top: 20px;
+                padding-bottom: 10px;
+                border: 7px solid;
+                border-top: 3px;
+            }
+
+            ol {
+                list-style-type: none;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            ol li {
+                padding-right: 15%;
+            }
+
+            footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: rgb(8, 8, 8);
+                color: white;
+                text-align: center;
+                border: 2px solid;
+                border-color: black;
+            }
+        </style>
+    </head>
+
+    <script>
+        function dark() {
+            document.body.style.backgroundColor = "black";
+        }
+    </script>
+
+    <script>
+        function white() {
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+
+
+    <body>
+        <nav>
+            <ul>
+                <li><b>SWAGISSUES.COM</b></li>
+                <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'news' %}">News</a></li>
+                <li><a href="{% url 'Ebooks' %}">E-Books</a></li>
+                <li style="float:right"><a href="/login/"><span class="glyphicon glyphicon-user">Log-in</a></li>
+                <li style="float:right"><a href="/register"><span class="glyphicon glyphicon-user">Sign-up</a>
+                </li>
+            </ul>
+        </nav>
+
+        <ol>
+            <li style="float:right"><button onclick="dark()">Dark Background</button></li>
+            <li style="float:left"><button onclick="white()">White Background</button></li>
+        </ol>
+        {% block content %} {% endblock %}
+
+        <footer>
+
+            <ol>
+                <li>Contact us Via:</li>
+                <li>dummytwiz@gmail.com</li>
+                <li>08052027785</li>
+                <li>facebook</li>
+            </ol>
+        </footer>
+
+
+    </body>
+
+    </html>

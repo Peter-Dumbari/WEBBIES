@@ -1,0 +1,48 @@
+{% extends 'news/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body {
+        background-image: url("https://res.cloudinary.com/tamstech-computer-repair-center/image/upload/v1646303753/Money-Heist-Mask-Wallpaper-HD_q2ajf5.png");
+    }
+
+    .image {
+        background-position: 10px;
+    }
+</style>
+
+<body>
+
+
+    <section>
+
+        <div class="container">
+            <div></div>
+            <div class="row">
+                <div class="col-lg-8">
+                    {% for item in mynews %}
+
+                    <div class="jumbotron">
+                        <h2>{{item.topic}}</h2>
+                        <p style="font-size:13px;">Posted: {{item.datecreated}}</p>
+                        <article>
+                            {{item.article}}
+                        </article><br>
+                        <a href="" class="btn btn-link">Read more....</a>
+                        <a href="" class="btn btn-success">Download</a>
+                        <a class="btn btn-danger" href="{% url 'delete' pk=item.pk %}">delete</a>
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+{% endblock %}

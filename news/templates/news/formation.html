@@ -1,0 +1,94 @@
+{% extends 'news/navbar.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#headar").click(function () {
+                $("#bodi").slideDown("slow");
+            });
+        });
+    </script>
+    <style>
+        #headar,
+        #bodi {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #bodi {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+
+
+    </body>
+
+</html>
+
+
+<div class="container">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <center>
+            <h3 id="headar">Click Here to Write your complain</h3><br>
+        </center>
+        <form action="" id="bodi">
+            <input type="text" class="form-control" placeholder="Topic" id="topic"><br>
+            <textarea name="" id="news" cols="30" rows="10" placeholder="News" class="form-control"></textarea><br>
+            <center><input type="submit" value="Send" class="btn btn-success"></center>
+        </form>
+        <div class="col-lg-3"></div>
+    </div>
+    `
+    <script>
+        function Number(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('form').submit(function (event) {
+                event.preventDefault();
+                var topic = $('#topic').val()
+                var news = $('#news').val()
+                if (topic.length === 0) {
+                    alert('Topic cant be empty')
+                } else if (news.length === 0) {
+                    alert('News cant be empty')
+                } else if (Number(topic)) {
+                    alert('Numbers or signs are not allowed as Topic');
+                }
+                else {
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: {
+                            topic: $('#topic').val(),
+                            news: $('#news').val(),
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+                        },
+                        success: function (json) {
+                            alert("saved successfully")
+                        },
+
+                        error: function (xhr, errmsg, err) {
+                            alert('Something went wrong')
+                            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    {% endblock %}
